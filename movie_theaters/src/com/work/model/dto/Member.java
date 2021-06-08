@@ -3,26 +3,6 @@ package com.work.model.dto;
 /**
  * <pre>
  * 회원 도메인 클래스 
- * -- encapsulation 설계 반영 변경
- * ## 회원 검증조건
- * 	1. 아이디 : 6자리 ~ 30자리 이내
- * 	2. 비밀번호 : 6자리 ~ 20자리 이내
- * 	3. 마일리지 : 0 ~ 100,000 
- * 	4. 등급 : G, S, A
- * 	-- 문자열 비교 메서드
- * 	-- String
- * 	-- equals(Object anObject) : boolean
- * 
- * -- inheritance 설계 반영 변경
- * 	-- 모든 회원들의 공통(일반화) : 부모 클래스 설계 변경
- * 	1. 아이디
- * 	2. 비밀번호
- * 	3. 이름
- * 	4. 휴대폰
- * 	5. 생일
- * 	6. 가입일
- * 	7. 등급
- * 	8. 마일리지
  * </pre>
  * 
  * @author Hwang yuna
@@ -53,7 +33,7 @@ public class Member {
 	private String grade;
 	
 	/** 마일리지 : 일반회원, 선택, 시스템 제공 */
-	private int mileage;
+	private String mileage;
 	
 
 	/**
@@ -107,10 +87,11 @@ public class Member {
 	 * @param mileage 마일리지
 	 */
 	public Member(String memberId, String memberPw, String name, String mobile, String birth, String entryDate,
-			String grade, int mileage) {
+			String grade, String mileage) {
 		this(memberId, memberPw, name, mobile, birth, entryDate, grade);
 		this.mileage = mileage;
 	}
+	
 
 	/**
 	 * @return the memberId
@@ -213,14 +194,14 @@ public class Member {
 	/**
 	 * @return the mileage
 	 */
-	public int getMileage() {
+	public String getMileage() {
 		return mileage;
 	}
 
 	/**
 	 * @param mileage the mileage to set
 	 */
-	public void setMileage(int mileage) {
+	public void setMileage(String mileage) {
 		this.mileage = mileage;
 	}
 
@@ -273,10 +254,4 @@ public class Member {
 	}
 
 
-	
-	
-	
-	
-	
-	
 }

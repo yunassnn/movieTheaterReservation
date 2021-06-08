@@ -8,19 +8,17 @@ package com.work.model.dto;
  */
 public class Movie {
 	
-	/** 영화 제목, 필수 */
-	private String movieTitle;
 	
 	/** 영화 번호, 필수*/
-	private int movieNum;
+	private String movieNum;
+
+	/** 영화 제목, 필수 */
+	private String movieTitle;
 	
 	/** 영화 연령 제한, 필수 */
 	private String movieAge;
 
-	/** 영화 줄거리, 필수 */
-	private String movieSummary;
-	
-	
+		
 	/** 기본 생성자 */
 	public Movie() {
 
@@ -33,11 +31,10 @@ public class Movie {
 	 * @param movieAge 영화연령
 	 * @param movieSummary 영화줄거리
 	 */
-	public Movie(String movieTitle, int movieNum, String movieAge, String movieSummary) {
-		this.movieTitle = movieTitle;
+	public Movie(String movieNum, String movieTitle, String movieAge) {
 		this.movieNum = movieNum;
+		this.movieTitle = movieTitle;
 		this.movieAge = movieAge;
-		this.movieSummary = movieSummary;
 	}
 
 	/**
@@ -57,14 +54,14 @@ public class Movie {
 	/**
 	 * @return the movieNum
 	 */
-	public int getMovieNum() {
+	public String getMovieNum() {
 		return movieNum;
 	}
 
 	/**
 	 * @param movieNum the movieNum to set
 	 */
-	public void setMovieNum(int movieNum) {
+	public void setMovieNum(String movieNum) {
 		this.movieNum = movieNum;
 	}
 
@@ -82,25 +79,11 @@ public class Movie {
 		this.movieAge = movieAge;
 	}
 
-	/**
-	 * @return the movieSummary
-	 */
-	public String getMovieSummary() {
-		return movieSummary;
-	}
-
-	/**
-	 * @param movieSummary the movieSummary to set
-	 */
-	public void setMovieSummary(String movieSummary) {
-		this.movieSummary = movieSummary;
-	}
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + movieNum;
+		result = prime * result + ((movieNum == null) ? 0 : movieNum.hashCode());
 		return result;
 	}
 
@@ -126,8 +109,6 @@ public class Movie {
 		builder.append(movieNum);
 		builder.append(", ");
 		builder.append(movieAge);
-		builder.append(", ");
-		builder.append(movieSummary);
 		return builder.toString();
 	}
 	
